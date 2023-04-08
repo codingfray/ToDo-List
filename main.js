@@ -1,47 +1,25 @@
-let itemsContainer = document.getElementById("items");
-let itemsTemplate = document.getElementById("item-template");
-let addButton = document.getElementById("add");
+let addButton = document.getElementById('addition');
+let addContainer = document.getElementById('toDoContainer');
+let inputField = document.getElementById('inputField');
 
-let items = getItems();
-function getItems () {
-    const value = window.localStorage.getItem("todo") || "[]";
+addButton.addEventListener('click', function(){
+    let paragraph = document.createElement('p');
+    let deleteButton = document.createElement("button");
+    paragraph.classList.add('paragraph-styling');
+    deleteButton.classList.add('paragraph-button');
+    deleteButton.innerHTML = "Delete";
     
-    return JSON.parse(value);
-}
-
-function setItems(items) {
-    const itemsJson = JSON.stringify(items);
-
-    window.localStorage.setItem("todo", itemsJson);
-}
-
-function addItem() {
-    items.unshift({
-        description: "",
-        completed: false
-    });
-
-    setItems(items);
-    refreshList();
-}
-function refreshList (){
-    itemsContainer.innHTML = "";
-    for (const item of items) {
-        const itemElement = itemsTemplate.content.cloneNode(true);
-        const descriptionInput = itemElement.querySelector(".item-description");
-        const completedInput = itemElement.querySelector(".item-completed");
-
-        descriptionInput.value = item.description;
-        completedInput.checked = item.completed;
-
-        itemsContainer.append(itemElement);
-        
-    }
-    
-}
-
-addButton.addEventListener("click", () => {
-    addItem();
+    paragraph.innerText = inputField.value;
+    addContainer.append(paragraph, deleteButton);
+    // addContainer.appendChild(deleteButton);
+    inputField.value = "";
+    paragraph.addEventListener('click', function(){
+        paragraph.style.textDecoration = 'line-through';
+        paragraph.style.color = 'grey';
+    })
+    deleteButton.addEventListener('click', function(){
+        paragraph.remove(paragraph);
+        deleteButton.remove(deleteButton);
+    })
 })
 
-refreshList();

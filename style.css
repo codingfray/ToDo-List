@@ -1,18 +1,65 @@
-.item--description {
-    padding: 5px;
-    width: 200px;
-    margin-bottom: 10px;
+html, body{
+    /* width: 50%; */
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.item-completed:checked + .item-description {
-    background: lightgray;
-    text-decoration: line-through;
+h1 {
+    /* margin: auto; */
+    text-align: center;
+    color:rgb(136, 136, 230);
+}
+.container{
+     /* width: auto; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;   
 }
 
-#add {
-    padding: 8px 14px;
-    font-weight: bold;
-    color: white;
-    background-color: blue;
+#inputField {
+
+    height: 40px;
+    border: 1px solid black;
+    font-size: 25px;
+}
+
+#addition{
+    height: 40px;
+    width: 40px;
+    border: none;
+    margin-left: 2px;
+    /* vertical-align: middle; */
+    font-size: 30px;
     cursor: pointer;
+    background-color: rgb(136, 136, 230);
+    color: white;
+
+}
+
+.to-dos{
+    margin: 25px 0;
+    text-align: center;
+}
+
+.paragraph-styling {
+    margin: auto;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+}
+
+.paragraph-button {
+    width: 70px;
+    height: 35px;
+    border: none;
+    background-color: rgb(136, 136, 230);
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+.paragraph-button:hover {
+    width: 80px;
+    height: 40px;
 }
